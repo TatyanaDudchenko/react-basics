@@ -1,9 +1,9 @@
 import React from "react";
-import cl from "./MyModal.module.css";
+import cl from "./AddItemModal.module.css";
 
-const MyModal = ({ children, visible, setVisible }) => {
+const AddItemModal = ({ children, visible, setVisible }) => {
 
-    const rootClasses = [cl.myModal]
+    const rootClasses = [cl.addItemModal]
 
     if(visible === true) {
         rootClasses.push(cl.active)
@@ -11,11 +11,11 @@ const MyModal = ({ children, visible, setVisible }) => {
 
     return (
         <div className={rootClasses.join(" ")} onClick={() => setVisible(false)}>
-            <div className={cl.myModalContent} onClick={(e) => e.stopPropagation()}>
+            <div className={cl.addItemModalContent} onClick={(e) => e.stopPropagation()}>
                 {children}
             </div>
         </div>
     );
 };
 
-export default MyModal;
+export default AddItemModal;

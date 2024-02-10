@@ -1,25 +1,7 @@
 import React from "react";
 
 const defaultState = {
-    contractors: [
-        {
-            contractorsName: "ООО Клининг",
-            contractDate: "08.02.2024",
-            contactFaces: {
-                contact1: {
-                    name: "Аркадий",
-                    jobTitle: "менеджер по заявкам",
-                    phoneNumber: "+79998887766",
-                },
-                contact2: {
-                    name: "Анна",
-                    jobTitle: "менеджер по качеству",
-                    phoneNumber: "+75554443322",
-                },
-            },
-            note: "Ежегодная автопролонгация"
-        },
-    ]
+    contractors: []
 }; 
 
 const reducer = (state, action) => {
@@ -45,8 +27,11 @@ const Context = React.createContext({
 });
 
 export const ContextProvider = (props) => {
-    const { children } = props;
-    const [state, dispatch] = React.useReducer(reducer, defaultState)
+    const { children, initialState } = props;
+    const [state, dispatch] = React.useReducer(reducer, {
+        ...defaultState,
+        ...initialState
+    })
 
     return (
         <Context.Provider value={{ state, dispatch }}>

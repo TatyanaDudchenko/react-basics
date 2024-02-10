@@ -1,10 +1,4 @@
 import React from "react";
-const props = {
-    contractor: {
-        contractorsName: "pp",
-        contractDate: "01"
-    }
-}
 
 const Contractor = (props) => {
     const { contractorsName, contractDate, contactFaces, note } = props;
